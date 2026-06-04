@@ -1,6 +1,6 @@
 # Portal Acadêmico
 
-Sistema acadêmico desenvolvido em Java com Spring Boot como projeto final da disciplina.
+Sistema acadêmico desenvolvido em Java com Spring Boot como projeto final da disciplina de Web Back End.
 
 ## Objetivo
 
@@ -9,7 +9,7 @@ O sistema simula o ambiente de uma universidade, permitindo o gerenciamento de a
 ## Tecnologias Utilizadas
 
 * Java 21
-* Spring Boot
+* Spring Boot 4.0.6
 * Spring Data JPA
 * PostgreSQL
 * Maven
@@ -64,43 +64,30 @@ O sistema simula o ambiente de uma universidade, permitindo o gerenciamento de a
 
 * Um aluno será considerado aprovado quando sua média for maior ou igual a 6,0.
 
-## Estrutura do Projeto
-
-```text
-src/main/java
-
-├── controller
-├── service
-├── repository
-├── entity
-├── dto
-└── config
-```
-
 ## Banco de Dados
 
 O projeto utiliza PostgreSQL para persistência dos dados.
 
 As tabelas serão geradas automaticamente pelo Hibernate/JPA durante a execução da aplicação.
 
-## Como Executar
+## Repositório
 
-1. Clonar o repositório
+Clone o projeto:
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/lucasnsnt/portal-academico.git
 ```
 
-2. Configurar o PostgreSQL
+## Como Executar
 
-3. Configurar o arquivo `application.properties`
-
-4. Executar a aplicação
+1. Clone o repositório
+2. Configure o PostgreSQL
+3. Configure o arquivo `application.properties`
+4. Execute a aplicação
 
 ```bash
 ./mvnw spring-boot:run
 ```
-
 ## Autor
 
-Desenvolvido como projeto acadêmico utilizando Spring Boot e PostgreSQL.
+Projeto desenvolvido por Lucas Santos para a disciplina de Web Back End / Universidade Tiradentes.
