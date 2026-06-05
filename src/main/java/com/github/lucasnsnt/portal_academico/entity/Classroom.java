@@ -1,18 +1,25 @@
 package com.github.lucasnsnt.portal_academico.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.Year;
+import java.util.List;
 
 @Entity
+@Table(name = "classroom")
 public class Classroom {
 
     @Id
-    private int code;
+    private String code;
 
-    private String semester;
+    private byte semester;
 
     private Year year;
+
+    @OneToMany(mappedBy = "classroom")
+    private List<Enrollment> enrollments;
+
+    @ManyToOne
+    private Course course;
 
 }

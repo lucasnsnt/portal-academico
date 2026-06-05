@@ -1,19 +1,26 @@
 package com.github.lucasnsnt.portal_academico.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 @Entity
+@Table(name = "enrollment")
 public class Enrollment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @ManyToOne
     private Student student;
 
+    @ManyToOne
     private Classroom classroom;
 
-    private int firtGrade;
+    private double firtGrade;
 
-    private int secondGrade;
+    private double secondGrade;
 
-    private int thirdGrade;
+    private double thirdGrade;
 }
