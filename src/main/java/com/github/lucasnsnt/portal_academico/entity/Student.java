@@ -2,7 +2,6 @@ package com.github.lucasnsnt.portal_academico.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,7 +31,6 @@ public class Student {
 
     @Column(name = "enrollment_date")
     private LocalDate enrollmentDate;
-
 
     @OneToMany(mappedBy = "student")
     private List<Enrollment> enrollments;
