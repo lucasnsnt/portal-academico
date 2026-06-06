@@ -1,9 +1,20 @@
 package com.github.lucasnsnt.portal_academico.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
+
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "enrollment")
 public class Enrollment {
@@ -22,11 +33,17 @@ public class Enrollment {
     private Classroom classroom;
 
     @Column(name = "first_grade")
+    @DecimalMin(value = "0.0", inclusive = true, message = "Nota deve ser maior ou igual a 0.0")
+    @DecimalMax(value = "10.0", inclusive = true, message = "Nota deve ser menor ou igual a 10.0")
     private double firstGrade;
 
     @Column(name = "second_grade")
+    @DecimalMin(value = "0.0", inclusive = true, message = "Nota deve ser maior ou igual a 0.0")
+    @DecimalMax(value = "10.0", inclusive = true, message = "Nota deve ser menor ou igual a 10.0")
     private double secondGrade;
 
     @Column(name = "third_grade")
+    @DecimalMin(value = "0.0", inclusive = true, message = "Nota deve ser maior ou igual a 0.0")
+    @DecimalMax(value = "10.0", inclusive = true, message = "Nota deve ser menor ou igual a 10.0")
     private double thirdGrade;
 }
