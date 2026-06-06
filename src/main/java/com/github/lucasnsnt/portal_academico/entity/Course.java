@@ -1,10 +1,7 @@
 package com.github.lucasnsnt.portal_academico.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -15,8 +12,10 @@ public class Course {
     @Id
     private String code;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "syllabus")
     private String syllabus;
 
     @OneToMany(mappedBy = "course")

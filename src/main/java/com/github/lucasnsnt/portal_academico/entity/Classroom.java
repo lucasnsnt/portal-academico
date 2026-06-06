@@ -12,14 +12,17 @@ public class Classroom {
     @Id
     private String code;
 
+    @Column(name = "semester")
     private byte semester;
 
-    private Year year;
+    @Column(name = "year")
+    private int year;
 
     @OneToMany(mappedBy = "classroom")
     private List<Enrollment> enrollments;
 
     @ManyToOne
+    @JoinColumn(name = "course_id")
     private Course course;
 
 }

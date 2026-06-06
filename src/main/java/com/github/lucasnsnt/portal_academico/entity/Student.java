@@ -1,9 +1,6 @@
 package com.github.lucasnsnt.portal_academico.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -13,13 +10,18 @@ import java.util.List;
 public class Student {
 
     @Id
+    @Column(name = "registration_number")
     private String registrationNumber;
 
+    @Column(name = "name")
     private String name;
 
-    private String Address;
+    @Column(name = "address")
+    private String address;
 
+    @Column(name = "enrollment_date")
     private LocalDate enrollmentDate;
+
 
     @OneToMany(mappedBy = "student")
     private List<Enrollment> enrollments;
