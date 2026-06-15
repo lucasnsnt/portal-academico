@@ -29,7 +29,7 @@ public class CourseController {
         return ResponseEntity.status(HttpStatus.CREATED).body(save);
     }
 
-    @PutMapping("{code}")
+    @PutMapping("/{code}")
     public ResponseEntity<Course> uptadeCourse(@PathVariable String code, @RequestBody Course course) {
         Course save = courseService.updateCourse(course);
         return ResponseEntity.ok(save);
