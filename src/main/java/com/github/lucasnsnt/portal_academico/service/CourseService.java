@@ -16,4 +16,16 @@ public class CourseService {
     public Optional<Course> getCourseByCode(String code) {
         return courseRepository.findById(code);
     }
+
+    public Course saveCourse(Course course) {
+        return courseRepository.save(course);
+    }
+
+    public Course updateCourse(Course course) {
+        return courseRepository.save(course);
+    }
+
+    public void deleteCourse(String id) {
+        courseRepository.deleteById(id);
+    }
 }
