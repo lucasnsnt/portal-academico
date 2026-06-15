@@ -10,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/courses")
 @RequiredArgsConstructor
+@RequestMapping("/api/courses")
 public class CourseController {
 
     private final CourseService courseService;
