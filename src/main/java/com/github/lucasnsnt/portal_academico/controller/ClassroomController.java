@@ -2,8 +2,10 @@ package com.github.lucasnsnt.portal_academico.controller;
 
 
 import com.github.lucasnsnt.portal_academico.entity.Classroom;
+import com.github.lucasnsnt.portal_academico.entity.Enrollment;
 import com.github.lucasnsnt.portal_academico.entity.Student;
 import com.github.lucasnsnt.portal_academico.service.ClassroomService;
+import com.github.lucasnsnt.portal_academico.service.EnrollmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,8 @@ import java.util.List;
 public class ClassroomController {
 
     private final ClassroomService classroomService;
+
+    private final EnrollmentService enrollmentService;
 
     @GetMapping("/{code}")
     public ResponseEntity<Classroom> getClassroomByCode(@PathVariable String code) {
@@ -48,8 +52,9 @@ public class ClassroomController {
     }
 
     @GetMapping("{code}/students")
-    public ResponseEntity<List<Student>> getClassroomStudentsByCode(@PathVariable String code) {
-        return null;
+    public ResponseEntity<List<Enrollment>> getClassroomStudentsByCode(@PathVariable String code) {
+        return ResponseEntity.ok(enrollmentService.getStudentsClassByCode(code));
+
     }
 
 }
