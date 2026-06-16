@@ -1,5 +1,7 @@
 package com.github.lucasnsnt.portal_academico.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -32,6 +34,7 @@ public class Student {
     @Column(name = "enrollment_date")
     private LocalDate enrollmentDate;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "student")
     private List<Enrollment> enrollments;
 

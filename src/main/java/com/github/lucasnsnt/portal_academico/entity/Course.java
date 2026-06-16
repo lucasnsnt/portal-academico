@@ -1,6 +1,8 @@
 package com.github.lucasnsnt.portal_academico.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -28,6 +30,7 @@ public class Course {
     @Column(name = "syllabus")
     private String syllabus;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "course")
     private List<Classroom> classrooms;
 

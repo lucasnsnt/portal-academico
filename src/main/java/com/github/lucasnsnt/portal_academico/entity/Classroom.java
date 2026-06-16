@@ -1,5 +1,8 @@
 package com.github.lucasnsnt.portal_academico.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -32,6 +35,7 @@ public class Classroom {
     @Column(name = "year")
     private int year;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "classroom")
     private List<Enrollment> enrollments;
 
