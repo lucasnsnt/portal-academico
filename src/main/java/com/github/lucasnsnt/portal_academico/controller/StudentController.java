@@ -1,12 +1,15 @@
 package com.github.lucasnsnt.portal_academico.controller;
 
+import com.github.lucasnsnt.portal_academico.entity.Enrollment;
 import com.github.lucasnsnt.portal_academico.entity.Student;
+import com.github.lucasnsnt.portal_academico.service.EnrollmentService;
 import com.github.lucasnsnt.portal_academico.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
 
     private final StudentService studentService;
+
+    private final EnrollmentService enrollmentService;
 
     @GetMapping("/{registrationNumber}")
     public ResponseEntity<Student> getStudentByRegistrationNumber(@PathVariable String registrationNumber) {
@@ -33,6 +38,11 @@ public class StudentController {
             ,@RequestBody Student student) {
         Student save = studentService.updateStudent(student);
         return ResponseEntity.ok(save);
+    }
+
+    @GetMapping("/{registration}/average")
+    public ResponseEntity<List<Enrollment>> getStudentAverage(@PathVariable String registration) {
+        return ResponseEntity.ok(enrollmentService.getStudentsClassByRegistrationNumber(registration));
     }
 
     @DeleteMapping("/{registrationNumber}")

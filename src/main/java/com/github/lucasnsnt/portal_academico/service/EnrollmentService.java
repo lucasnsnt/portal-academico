@@ -5,6 +5,7 @@ import com.github.lucasnsnt.portal_academico.repository.iEnrollmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -26,6 +27,15 @@ public class EnrollmentService {
 
     public void deleteEnrollmentById(Long id) {
         enrollmentRepository.deleteById(id);
+    }
+
+    public List<Enrollment> getStudentsClassByCode(String code) {
+        return enrollmentRepository.findByClassroom_code(code);
+
+    }
+
+    public List<Enrollment> getStudentsClassByRegistrationNumber(String registrationNumber) {
+        return enrollmentRepository.findByStudent_registrationNumber(registrationNumber);
     }
 
     public double calculateGradeAverage(double  grade1, double  grade2, double grade3){
